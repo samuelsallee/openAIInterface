@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-    product 2 , refactor and faster interaction wilth villa master product
+    chat function to be able to interact with openai
     
 Globals:
   Function:
@@ -10,18 +10,10 @@ Globals:
     Runtime: python3.8
     Layers:
       - !Ref LambdaLayer
-    VpcConfig:
-      SecurityGroupIds:
-      - sg-73dae500
-      SubnetIds:
-      - subnet-0ca9ad2cd96fccccc
     Environment:
       Variables:
-        DAX_ENDPOINT: 'longtermcluster.vuu7lr.clustercfg.dax.apse1.cache.amazonaws.com:8111'
-        DATABASE_TABLE_NAME: !Join ['-', [ "product-table" , !Ref BRANCH ]]
         REGION: !Ref REGION
         BRANCH: !Ref BRANCH
-        SCHEMAURL: ''
       
       
 Parameters: 
@@ -49,22 +41,19 @@ Resources:
         AllowOrigin: "'*'"
         
   ######## functions ######
-  HelloWorld:
+  Chat:
     Type: AWS::Serverless::Function 
     Properties:
-      FunctionName: !Join ['-',[ "helloworld",!Ref BRANCH ]]
-      Handler: app.helloworld
-      Policies:
-        - arn:aws:iam::394922924679:policy/villaDaxPolicy
+      FunctionName: !Join ['-',[ "chat",!Ref BRANCH ]]
+      Handler: app.chat
       Events:
         GetProduct:
           Type: Api 
           Properties:
-            Path: /get
+            Path: /chat
             Method: get
             RestApiId: !Ref Endpoint
             
-
 ###### lambdaLayer ######
 
   LambdaLayer:
