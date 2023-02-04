@@ -2,9 +2,13 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"helloworld": "helloWorld.ipynb"}
+index = {"ParseInputError": "chat.ipynb",
+         "parseEvent": "chat.ipynb",
+         "talkWithOpenAI": "chat.ipynb",
+         "EventInput": "chat.ipynb",
+         "chat": "chat.ipynb"}
 
-modules = ["helloworld.py"]
+modules = ["chat.py"]
 
 doc_url = "https://thanakijwanavit.github.io/src/"
 
