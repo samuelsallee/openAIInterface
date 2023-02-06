@@ -246,3 +246,4 @@ $RECYCLE.BIN/
 **/*.zip
 
 *.csv
+*.feather
