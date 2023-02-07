@@ -246,3 +246,10 @@ $RECYCLE.BIN/
 **/*.zip
 
 *.csv
+
+*.feather
+
+test.ipynb
+test.py
+*.pkl
+*.joblib
