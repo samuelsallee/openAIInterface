@@ -1,3 +1,4 @@
 awsSchema
 beartype
 openai
+nicHelper

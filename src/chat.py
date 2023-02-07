@@ -3,7 +3,7 @@
 __all__ = ['ParseInputError', 'parseEvent', 'talkWithOpenAI', 'EventInput', 'chat']
 
 # Cell
-import os, openai, requests
+import os, openai
 from awsSchema.apigateway import Event, Response
 from copy import deepcopy
 from beartype import beartype
