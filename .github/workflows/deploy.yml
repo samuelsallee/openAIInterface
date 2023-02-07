@@ -72,7 +72,7 @@ jobs:
 
     - name: register stack prefix, (put your stack here)
       run: |
-        echo "STACK_PREFIX=chatWithDavinci-" >> $GITHUB_ENV
+        echo "STACK_PREFIX=chatWithOpenAi-" >> $GITHUB_ENV
         # comment here to 
     
     
