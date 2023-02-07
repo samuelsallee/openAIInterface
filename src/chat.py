@@ -7,7 +7,8 @@ import os, openai, requests
 from awsSchema.apigateway import Event, Response
 from copy import deepcopy
 from beartype import beartype
-
+from nicHelper.secrets import getSecret
+from openai import Completion
 
 # Cell
 class ParseInputError(Exception):
@@ -30,12 +31,11 @@ def parseEvent(event):
 
 @beartype
 def talkWithOpenAI(inputText: str)->str:
-    headers = {"Authorization":"Bearer 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"}
-    event = {"model": "text-davinci-003", "prompt": inputText, "temperature": 0.2, "max_tokens": 100}
-    print('input text is', inputText)
-    r = requests.post('https://api.openai.com/v1/completions', headers=headers, json=event)
+    openai.api_key = getSecret('openai')['key']
+    r = Completion.create(engine="davinci", prompt=inputText, max_tokens=100, temperature=0.2)
+    print("r: ", r)
 
-    return r.json()["choices"][0]["text"]
+    return r["choices"][0]["text"]
 
 # Cell
 def chat(event, *args):
