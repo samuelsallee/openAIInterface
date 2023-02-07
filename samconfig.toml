@@ -2,8 +2,8 @@ version = 0.1
 [default]
 [default.deploy]
 [default.deploy.parameters]
-stack_name = "chatWithDavinci"
-s3_bucket = "chat-with-davinci"
-s3_prefix = "chatWithDavinci"
+stack_name = "chatWithOpenAI"
+s3_bucket = "chat-with-openai"
+s3_prefix = "chatWithOpenAI"
 region = "ap-southeast-1"
 capabilities = "CAPABILITY_IAM"
